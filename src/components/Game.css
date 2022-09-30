@@ -1,0 +1,7 @@
+.board-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.ant-page-header {
+  padding: 10px 24px !important;
+}
