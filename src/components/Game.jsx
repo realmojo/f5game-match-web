@@ -1,10 +1,12 @@
 import React, { useState, useLayoutEffect } from "react";
 import "./Game.css";
-import { PageHeader } from "antd";
+import { Counter } from "./Counter";
+import { PageHeader, Modal, Button } from "antd";
 import { observer } from "mobx-react";
 import stores from "../stores";
 import styled from "styled-components";
-console.log(window.innerWidth);
+import { Congratulation } from "./Animation/Congratulation/Congratultation";
+
 const MAX_WIDTH = window.innerWidth > 500 ? 500 : window.innerWidth;
 const containerPadding = 10;
 const tilePadding = 3;
@@ -40,6 +42,13 @@ const TileImage = styled.div`
 `;
 
 export const Game = observer(() => {
+  const [gameClearModalVisible, setGameClearModalVisible] = useState(false);
+  const [gameClearModalButtonVisible, setGameClearModalButtonVisible] =
+    useState(false);
+  const [gameOverModalVisible, setGameOverModalVisible] = useState(false);
+  const [gameOverModalButtonVisible, setGameOverModalButtonVisible] =
+    useState(false);
+
   const [isClick, setIsClick] = useState(false);
   const [gameLevel, setGameLevel] = useState(0);
   const [isStart, setIsStart] = useState(true);
@@ -86,7 +95,7 @@ export const Game = observer(() => {
       doGameOver();
       setTimeout(() => {
         console.log("game over");
-        // setGameOverModalButtonVisible(true);
+        setGameOverModalButtonVisible(true);
       }, 2000);
     }
 
@@ -132,12 +141,12 @@ export const Game = observer(() => {
     if (stores.game.isClear()) {
       const level = await stores.game.getLevel();
       stores.game.setLevel(Number(level) + 1);
-      // setGameClearModalVisible(true);
+      setGameClearModalVisible(true);
       stores.game.setScore(gameLevel, time);
       clearInterval(currentTimer);
-      // setTimeout(() => {
-      //   setGameClearModalButtonVisible(true);
-      // }, 2000);
+      setTimeout(() => {
+        setGameClearModalButtonVisible(true);
+      }, 2000);
     }
   };
 
@@ -147,12 +156,38 @@ export const Game = observer(() => {
     setCounter(stage.time);
   };
 
+  const doNext = () => {
+    setGameInit();
+    setIsStart(true);
+    setGameClearModalButtonVisible(false);
+    setGameClearModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setGameClearModalVisible(false);
+  };
+
+  const gameOverCancel = () => {
+    setGameOverModalVisible(false);
+  };
+
+  const doGameOver = () => {
+    setGameOverModalVisible(true);
+  };
+
+  const doRestart = () => {
+    setGameInit();
+    setGameOverModalVisible(false);
+    setIsStart(true);
+  };
+
   return (
     <div className="site-page-header-ghost-wrapper">
       <PageHeader
         ghost={false}
         onBack={() => window.history.back()}
         title={`LEVEL ${gameLevel + 1}`}
+        extra={<Counter counter={counter} />}
       ></PageHeader>
 
       <div className="board-container">
@@ -180,6 +215,52 @@ export const Game = observer(() => {
             );
           })}
         </Container>
+
+        <Modal
+          title={`LEVEL ${gameLevel} CLEAR`}
+          open={gameClearModalVisible}
+          onOk={doNext}
+          onCancel={handleCancel}
+          width={480}
+          closable={false}
+          maskClosable={false}
+          footer={
+            gameClearModalButtonVisible
+              ? [
+                  <Button key="back" onClick={handleCancel}>
+                    Cancel
+                  </Button>,
+                  <Button key="submit" type="primary" onClick={doNext}>
+                    Next
+                  </Button>,
+                ]
+              : ""
+          }
+        >
+          애드센스 코드
+        </Modal>
+        {gameClearModalVisible ? <Congratulation /> : null}
+        <Modal
+          title="Game Over"
+          open={gameOverModalVisible}
+          onOk={doRestart}
+          onCancel={gameOverCancel}
+          width={480}
+          closable={false}
+          maskClosable={false}
+          footer={
+            gameOverModalButtonVisible
+              ? [
+                  <Button key="back" onClick={gameOverCancel}>
+                    Cancel
+                  </Button>,
+                  <Button key="submit" type="primary" onClick={doRestart}>
+                    Retry
+                  </Button>,
+                ]
+              : ""
+          }
+        ></Modal>
       </div>
     </div>
   );

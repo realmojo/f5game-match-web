@@ -31,7 +31,7 @@ for (let i = 5; i <= 1000; i++) {
     level: i + 1,
     row: row,
     col: col,
-    time: 300,
+    time: row * 10,
   });
 }
 

@@ -57,11 +57,11 @@ const loadImage = [
 ];
 
 const doGetLevel = () => {
-  // return new Promise(async (resolve) => {
-  //   const level = await AsyncStorage.getItem("level");
-  //   resolve(level ? Number(level) : 1);
-  // });
-  return 44;
+  return new Promise(async (resolve) => {
+    const level = await AsyncStorage.getItem("level");
+    resolve(level ? Number(level) : 1);
+  });
+  // return 44;
 };
 
 const doGetScore = () => {

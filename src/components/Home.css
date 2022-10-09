@@ -1,0 +1,15 @@
+.btn-start {
+  width: 336px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #1890ff;
+  border-color: #1890ff;
+  border-radius: 2px;
+  color: white;
+  border-style: none;
+  cursor: pointer;
+}
+.btn-start:hover {
+  background-color: #3d9ffc;
+}

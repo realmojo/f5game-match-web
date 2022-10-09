@@ -1,4 +1,5 @@
 import React from "react";
+import "./Home.css";
 import { Link } from "react-router-dom";
 export const Home = () => {
   return (
@@ -6,7 +7,9 @@ export const Home = () => {
       <div>
         <h1>같은 그림찾기</h1>
       </div>
-      <Link to="/game">Start</Link>
+      <Link to="/game">
+        <button className="btn-start">START</button>
+      </Link>
     </div>
   );
 };
