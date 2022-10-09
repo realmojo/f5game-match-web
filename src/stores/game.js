@@ -2,59 +2,64 @@ import { observable, runInAction } from "mobx";
 import { levels } from "../lib";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import IMAGE_0 from "../assets/images/0.png";
-import IMAGE_1 from "../assets/images/1.png";
-import IMAGE_2 from "../assets/images/2.png";
-import IMAGE_3 from "../assets/images/3.png";
-import IMAGE_4 from "../assets/images/4.png";
-import IMAGE_5 from "../assets/images/5.png";
-import IMAGE_6 from "../assets/images/6.png";
-import IMAGE_7 from "../assets/images/7.png";
-import IMAGE_8 from "../assets/images/8.png";
-import IMAGE_9 from "../assets/images/9.png";
-import IMAGE_10 from "../assets/images/10.png";
-import IMAGE_11 from "../assets/images/11.png";
-import IMAGE_12 from "../assets/images/12.png";
-import IMAGE_13 from "../assets/images/13.png";
-import IMAGE_14 from "../assets/images/14.png";
-import IMAGE_15 from "../assets/images/15.png";
-import IMAGE_16 from "../assets/images/16.png";
-import IMAGE_17 from "../assets/images/17.png";
-import IMAGE_18 from "../assets/images/18.png";
-import IMAGE_19 from "../assets/images/19.png";
-import IMAGE_20 from "../assets/images/20.png";
-import IMAGE_21 from "../assets/images/21.png";
-import IMAGE_22 from "../assets/images/22.png";
-import IMAGE_23 from "../assets/images/23.png";
-import IMAGE_24 from "../assets/images/24.png";
+// import IMAGE_0 from "https://tistory.s3.ap-northeast-2.amazonaws.com/0.png";
+// import IMAGE_1 from "../assets/images/1.png";
+// import IMAGE_2 from "../assets/images/2.png";
+// import IMAGE_3 from "../assets/images/3.png";
+// import IMAGE_4 from "../assets/images/4.png";
+// import IMAGE_5 from "../assets/images/5.png";
+// import IMAGE_6 from "../assets/images/6.png";
+// import IMAGE_7 from "../assets/images/7.png";
+// import IMAGE_8 from "../assets/images/8.png";
+// import IMAGE_9 from "../assets/images/9.png";
+// import IMAGE_10 from "../assets/images/10.png";
+// import IMAGE_11 from "../assets/images/11.png";
+// import IMAGE_12 from "../assets/images/12.png";
+// import IMAGE_13 from "../assets/images/13.png";
+// import IMAGE_14 from "../assets/images/14.png";
+// import IMAGE_15 from "../assets/images/15.png";
+// import IMAGE_16 from "../assets/images/16.png";
+// import IMAGE_17 from "../assets/images/17.png";
+// import IMAGE_18 from "../assets/images/18.png";
+// import IMAGE_19 from "../assets/images/19.png";
+// import IMAGE_20 from "../assets/images/20.png";
+// import IMAGE_21 from "../assets/images/21.png";
+// import IMAGE_22 from "../assets/images/22.png";
+// import IMAGE_23 from "../assets/images/23.png";
+// import IMAGE_24 from "../assets/images/24.png";
 
-const loadImage = [
-  IMAGE_0,
-  IMAGE_1,
-  IMAGE_2,
-  IMAGE_3,
-  IMAGE_4,
-  IMAGE_5,
-  IMAGE_6,
-  IMAGE_7,
-  IMAGE_8,
-  IMAGE_9,
-  IMAGE_10,
-  IMAGE_11,
-  IMAGE_12,
-  IMAGE_13,
-  IMAGE_14,
-  IMAGE_15,
-  IMAGE_16,
-  IMAGE_17,
-  IMAGE_18,
-  IMAGE_19,
-  IMAGE_20,
-  IMAGE_21,
-  IMAGE_22,
-  IMAGE_23,
-  IMAGE_24,
-];
+const loadImage = [];
+for (let i = 0; i <= 24; i += 1) {
+  loadImage.push(`https://tistory.s3.ap-northeast-2.amazonaws.com/${i}.png`);
+}
+
+// const loadImage = [
+//   IMAGE_0,
+//   IMAGE_1,
+//   IMAGE_2,
+//   IMAGE_3,
+//   IMAGE_4,
+//   IMAGE_5,
+//   IMAGE_6,
+//   IMAGE_7,
+//   IMAGE_8,
+//   IMAGE_9,
+//   IMAGE_10,
+//   IMAGE_11,
+//   IMAGE_12,
+//   IMAGE_13,
+//   IMAGE_14,
+//   IMAGE_15,
+//   IMAGE_16,
+//   IMAGE_17,
+//   IMAGE_18,
+//   IMAGE_19,
+//   IMAGE_20,
+//   IMAGE_21,
+//   IMAGE_22,
+//   IMAGE_23,
+//   IMAGE_24,
+// ];
 
 const doGetLevel = () => {
   return new Promise(async (resolve) => {

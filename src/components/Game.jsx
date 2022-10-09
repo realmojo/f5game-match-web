@@ -104,7 +104,6 @@ export const Game = observer(() => {
   // }, []);
 
   const doSelect = async (key, item) => {
-    console.log(isClick, item.active);
     if (isClick || item.active) {
       return;
     }
@@ -208,7 +207,6 @@ export const Game = observer(() => {
                       backgroundPosition: "center",
                       backgroundSize: "cover",
                     }}
-                    // style={item.active ? { opacity: 1 } : { opacity: 0 }}
                   ></TileImage>
                 </InnerTile>
               </Tile>

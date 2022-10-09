@@ -12,7 +12,7 @@ for (let i = 5; i <= 1000; i++) {
   let col = 0;
   let row = 0;
   if (i >= 5 && i < 10) {
-    row = 2;
+    row = 3;
     col = 2;
   } else if (i >= 10 && i < 20) {
     row = 4;
