@@ -185,7 +185,7 @@ export const Game = observer(() => {
       <PageHeader
         ghost={false}
         onBack={() => window.history.back()}
-        title={`LEVEL ${gameLevel + 1}`}
+        title={`LEVEL ${gameLevel}`}
         extra={<Counter counter={counter} />}
       ></PageHeader>
 
