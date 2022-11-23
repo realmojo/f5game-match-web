@@ -11,9 +11,9 @@
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.10",
     "antd": "^4.23.3",
-    "lottie-web": "^5.9.6",
     "mobx": "^6.6.2",
     "mobx-react": "^7.5.3",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-adsense": "^0.1.0",
     "react-dom": "^18.2.0",

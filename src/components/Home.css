@@ -14,3 +14,9 @@
 .btn-start:hover {
   background-color: #3d9ffc;
 }
+.post {
+  margin-top: 20px;
+}
+.post p {
+  color: #bed7ee;
+}

@@ -5,7 +5,8 @@ import { PageHeader, Modal, Button } from "antd";
 import { observer } from "mobx-react";
 import stores from "../stores";
 import styled from "styled-components";
-import { Congratulation } from "./Animation/Congratulation/Congratultation";
+import { AdsensePlay } from "./adsense/play";
+import { AdsenseClear } from "./adsense/clear";
 
 const MAX_WIDTH = window.innerWidth > 500 ? 500 : window.innerWidth;
 const containerPadding = 10;
@@ -94,7 +95,6 @@ export const Game = observer(() => {
     if (!isStart && counter === 0) {
       doGameOver();
       setTimeout(() => {
-        console.log("game over");
         setGameOverModalButtonVisible(true);
       }, 2000);
     }
@@ -214,6 +214,8 @@ export const Game = observer(() => {
           })}
         </Container>
 
+        <AdsensePlay />
+
         <Modal
           title={`LEVEL ${gameLevel} CLEAR`}
           open={gameClearModalVisible}
@@ -225,9 +227,6 @@ export const Game = observer(() => {
           footer={
             gameClearModalButtonVisible
               ? [
-                  <Button key="back" onClick={handleCancel}>
-                    Cancel
-                  </Button>,
                   <Button key="submit" type="primary" onClick={doNext}>
                     Next
                   </Button>,
@@ -235,9 +234,8 @@ export const Game = observer(() => {
               : ""
           }
         >
-          애드센스 코드
+          <AdsenseClear />
         </Modal>
-        {gameClearModalVisible ? <Congratulation /> : null}
         <Modal
           title="Game Over"
           open={gameOverModalVisible}
@@ -249,16 +247,15 @@ export const Game = observer(() => {
           footer={
             gameOverModalButtonVisible
               ? [
-                  <Button key="back" onClick={gameOverCancel}>
-                    Cancel
-                  </Button>,
                   <Button key="submit" type="primary" onClick={doRestart}>
                     Retry
                   </Button>,
                 ]
               : ""
           }
-        ></Modal>
+        >
+          <AdsenseClear />
+        </Modal>
       </div>
     </div>
   );
