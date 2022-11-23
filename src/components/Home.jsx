@@ -18,7 +18,9 @@ export const Home = () => {
       <div>
         <h1>같은 그림찾기</h1>
       </div>
-      <div className="my-4">{isAdsense ? <AdsenseMain /> : ""}</div>
+      <div className="my-4">
+        <AdsenseMain />
+      </div>
       <div style={{ marginTop: 20 }}>
         <Link to="/game">
           <button className="btn-start">START</button>
