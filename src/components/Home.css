@@ -1,9 +1,8 @@
 .btn-start {
-  min-width: 280px;
+  min-width: 336px;
   max-width: 336px;
-  height: 50px;
-  font-size: 18px;
-  font-weight: bold;
+  height: 40px;
+  font-size: 14.6px;
   background-color: #1890ff;
   border-color: #1890ff;
   border-radius: 2px;
@@ -16,6 +15,9 @@
 }
 .post {
   margin-top: 20px;
+}
+article > .post > h2 {
+  color: white;
 }
 .post p {
   color: #bed7ee;

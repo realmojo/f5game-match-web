@@ -9,7 +9,7 @@ export const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsAdsense(true);
-    }, 100);
+    }, 10);
     return setIsAdsense(false);
   }, []);
 
