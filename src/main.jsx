@@ -6,9 +6,7 @@ import "antd/dist/antd.css";
 import { HashRouter as Router } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>
+  <Router>
+    <App />
+  </Router>
 );

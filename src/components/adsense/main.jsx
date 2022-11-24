@@ -1,32 +1,20 @@
-import { useEffect } from "react";
+import AdSense from "react-adsense";
 
 export const AdsenseMain = () => {
   const isProduction = process.env.NODE_ENV === "production" ? true : false;
 
-  useEffect(() => {
-    // setTimeout(() => {
-    //   (window.adsbygoogle = window.adsbygoogle || []).push({});
-    // }, 10);
-  }, []);
-
   return (
     <>
-      {!isProduction ? (
-        <>
-          <ins
-            className="adsbygoogle"
+      {isProduction ? (
+        <div className="text-center">
+          <AdSense.Google
             style={{ display: "block" }}
-            data-ad-client="ca-pub-9130836798889522"
-            data-ad-slot="7319976494"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
+            client="ca-pub-9130836798889522"
+            slot="7319976494"
+            format="auto"
+            responsive="true"
           />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `(window.adsbygoogle = window.adsbygoogle || []).push({})`,
-            }}
-          />
-        </>
+        </div>
       ) : (
         <div
           style={{
