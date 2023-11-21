@@ -42,12 +42,7 @@ const TileImage = styled.div`
 
 export const Game = observer(() => {
   const [gameClearModalVisible, setGameClearModalVisible] = useState(false);
-  const [gameClearModalButtonVisible, setGameClearModalButtonVisible] =
-    useState(false);
   const [gameOverModalVisible, setGameOverModalVisible] = useState(false);
-  const [gameOverModalButtonVisible, setGameOverModalButtonVisible] =
-    useState(false);
-
   const [isClick, setIsClick] = useState(false);
   const [gameLevel, setGameLevel] = useState(0);
   const [isStart, setIsStart] = useState(true);
@@ -92,9 +87,6 @@ export const Game = observer(() => {
 
     if (!isStart && counter === 0) {
       doGameOver();
-      setTimeout(() => {
-        setGameOverModalButtonVisible(true);
-      }, 2000);
     }
 
     return () => clearInterval(timer);
@@ -141,9 +133,6 @@ export const Game = observer(() => {
       setGameClearModalVisible(true);
       stores.game.setScore(gameLevel, time);
       clearInterval(currentTimer);
-      setTimeout(() => {
-        setGameClearModalButtonVisible(true);
-      }, 2000);
     }
   };
 
@@ -156,7 +145,6 @@ export const Game = observer(() => {
   const doNext = () => {
     setGameInit();
     setIsStart(true);
-    setGameClearModalButtonVisible(false);
     setGameClearModalVisible(false);
   };
 
@@ -182,7 +170,6 @@ export const Game = observer(() => {
     <div className="site-page-header-ghost-wrapper">
       <PageHeader
         ghost={false}
-        onBack={() => window.history.back()}
         title={`LEVEL ${gameLevel}`}
         extra={<Counter counter={counter} />}
       ></PageHeader>
@@ -221,13 +208,9 @@ export const Game = observer(() => {
           closable={false}
           maskClosable={false}
           footer={
-            gameClearModalButtonVisible
-              ? [
-                  <Button key="submit" type="primary" onClick={doNext}>
-                    Next
-                  </Button>,
-                ]
-              : ""
+            <Button key="submit" type="primary" onClick={doNext}>
+              Next
+            </Button>
           }
         ></Modal>
         <Modal
@@ -239,13 +222,9 @@ export const Game = observer(() => {
           closable={false}
           maskClosable={false}
           footer={
-            gameOverModalButtonVisible
-              ? [
-                  <Button key="submit" type="primary" onClick={doRestart}>
-                    Retry
-                  </Button>,
-                ]
-              : ""
+            <Button key="submit" type="primary" onClick={doRestart}>
+              Retry
+            </Button>
           }
         ></Modal>
       </div>
