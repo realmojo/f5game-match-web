@@ -5,7 +5,6 @@ import { PageHeader, Modal, Button } from "antd";
 import { observer } from "mobx-react";
 import stores from "../stores";
 import styled from "styled-components";
-import { AdsensePlay } from "./adsense/play";
 import { AdsenseClear } from "./adsense/clear";
 
 const MAX_WIDTH = window.innerWidth > 500 ? 500 : window.innerWidth;
