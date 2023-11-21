@@ -214,8 +214,6 @@ export const Game = observer(() => {
           })}
         </Container>
 
-        <AdsensePlay />
-
         <Modal
           title={`LEVEL ${gameLevel} CLEAR`}
           open={gameClearModalVisible}
