@@ -29,7 +29,7 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Deploy
+      - name: Deploy-${{ secrets.AWS_ACCESS_KEY_ID }}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -37,4 +37,4 @@ jobs:
           aws s3 cp \
             --recursive \
             --region ap-northeast-2 \
-            dist s3://f5game-match
+            ./dist s3://f5game-match
