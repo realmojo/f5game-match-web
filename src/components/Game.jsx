@@ -5,7 +5,6 @@ import { PageHeader, Modal, Button } from "antd";
 import { observer } from "mobx-react";
 import stores from "../stores";
 import styled from "styled-components";
-import { AdsenseClear } from "./adsense/clear";
 
 const MAX_WIDTH = window.innerWidth > 500 ? 500 : window.innerWidth;
 const containerPadding = 10;
@@ -230,9 +229,7 @@ export const Game = observer(() => {
                 ]
               : ""
           }
-        >
-          <AdsenseClear />
-        </Modal>
+        ></Modal>
         <Modal
           title="Game Over"
           open={gameOverModalVisible}
@@ -250,9 +247,7 @@ export const Game = observer(() => {
                 ]
               : ""
           }
-        >
-          <AdsenseClear />
-        </Modal>
+        ></Modal>
       </div>
     </div>
   );

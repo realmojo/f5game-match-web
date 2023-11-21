@@ -1,25 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import { AdsenseMain } from "./adsense/main";
 
 export const Home = () => {
-  const [isAdsense, setIsAdsense] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsAdsense(true);
-    }, 10);
-    return setIsAdsense(false);
-  }, []);
-
   return (
     <div className="home-container">
       <div>
         <h1>같은 그림찾기</h1>
-      </div>
-      <div className="my-4">
-        <AdsenseMain />
       </div>
       <div style={{ marginTop: 20 }}>
         <Link to="/game">
